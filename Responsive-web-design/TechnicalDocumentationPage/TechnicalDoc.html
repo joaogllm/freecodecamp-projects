@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Technical Documentation Page</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>Technical Documentation</header>
+      <a href="#introduction" class="nav-link">Introduction</a>
+      <a href="#what_you_should_already_know" class="nav-link"
+        >What you should already know</a
+      >
+      <a href="#basic_html_and_css" class="nav-link">Basic HTML and CSS</a>
+      <a href="#javascript_basics" class="nav-link">JavaScript Basics</a>
+      <a href="#dom_manipulation" class="nav-link">DOM Manipulation</a>
+    </nav>
+    <main id="main-doc">
+      <section class="main-section" id="introduction">
+        <header>Introduction</header>
+        <p>
+          Welcome to this comprehensive technical documentation guide. This
+          resource covers essential web development concepts and best practices.
+        </p>
+        <p>
+          Web development has evolved significantly over the years, with new
+          tools and technologies constantly emerging to make development more
+          efficient and accessible.
+        </p>
+      </section>
+      <section class="main-section" id="what_you_should_already_know">
+        <header>What you should already know</header>
+        <p>
+          Before diving into advanced web development concepts, you should have
+          a foundational understanding of the following prerequisites:
+        </p>
+        <ul>
+          <li>Basic understanding of HTML structure and tags</li>
+          <li>Knowledge of CSS styling properties and selectors</li>
+          <li>Familiarity with JavaScript syntax and variables</li>
+        </ul>
+      </section>
+      <section class="main-section" id="basic_html_and_css">
+        <header>Basic HTML and CSS</header>
+        <p>
+          HTML provides the structure of web pages, while CSS handles the
+          presentation and layout. Together, they form the foundation of web
+          development.
+        </p>
+        <p>A basic HTML structure looks like this:</p>
+        <code
+          >&lt;html&gt;&lt;head&gt;&lt;title&gt;Page&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;</code
+        >
+        <p>
+          CSS allows you to style HTML elements with properties like color,
+          size, and positioning.
+        </p>
+        <code>body { font-family: Arial; background-color: #f0f0f0; }</code>
+      </section>
+      <section class="main-section" id="javascript_basics">
+        <header>JavaScript Basics</header>
+        <p>
+          JavaScript is a powerful language that brings interactivity to web
+          pages. It can manipulate the DOM, handle events, and work with APIs.
+        </p>
+        <p>Variables in JavaScript are declared using let, const, or var:</p>
+        <code>let name = "John"; const age = 25;</code>
+        <p>Functions allow you to encapsulate reusable code:</p>
+        <code>function greet(name) { return "Hello, " + name; }</code>
+      </section>
+      <section class="main-section" id="dom_manipulation">
+        <header>DOM Manipulation</header>
+        <p>
+          The DOM (Document Object Model) represents the structure of a web page
+          as a tree of objects that JavaScript can interact with.
+        </p>
+        <p>
+          Common DOM manipulation tasks include selecting elements and modifying
+          their properties:
+        </p>
+        <code
+          >document.getElementById("myId").textContent = "New Content";</code
+        >
+        <ul>
+          <li>
+            Select elements using getElementById, querySelector, or
+            getElementsByClassName
+          </li>
+          <li>Modify element content and attributes dynamically</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,120 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Corpo da página */
+body {
+  background: #f4f6fb;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Container */
+.container {
+  background: #ffffff;
+  padding: 30px;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Labels */
+label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Inputs e select */
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #00135c;
+}
+
+/* Textarea */
+textarea {
+  resize: none;
+  height: 100px;
+}
+
+/* Grupo de radios */
+.radio-group {
+  border: none;
+  display: flex;
+  gap: 15px;
+  margin: 10px 0;
+}
+
+/* Esconde o radio */
+.radio-group input[type="radio"] {
+  display: none;
+}
+
+/* Estilo do label como botão */
+.radio-group label {
+  padding: 8px 14px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+/* Hover */
+.radio-group label:hover {
+  border-color: #00135c;
+  color: #00135c;
+}
+
+/* Radio selecionado */
+.radio-group input[type="radio"]:checked + label {
+  background: #00135c;
+  color: #ffffff;
+  border-color: #00135c;
+  font-weight: bold;
+}
+
+/* Botão */
+button {
+  margin-top: 15px;
+  padding: 12px;
+  background: #00135c;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #000e47;
+}

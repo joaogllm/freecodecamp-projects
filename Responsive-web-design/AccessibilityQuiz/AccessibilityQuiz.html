@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="workshop Accessibility quiz" />
+    <title>Accessibility Quiz</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <img
+        src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg"
+        alt="freeCodeCamp"
+        id="logo"
+      />
+      <h1>HTML/CSS Quiz</h1>
+      <nav>
+        <ul>
+          <li><a href="#student-info">INFO</a></li>
+          <li><a href="#html-questions">HTML</a></li>
+          <li><a href="#css-questions">CSS</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <form
+        action="https://freecodecamp.org/practice-project/accessibility-quiz"
+        method="POST"
+      >
+        <section role="region" aria-labelledby="student-info">
+          <h2 id="student-info">Student Information</h2>
+          <div class="info">
+            <label for="name">Enter your name</label>
+            <input type="text" id="name" name="StudentName" />
+          </div>
+          <div class="info">
+            <label for="email">Enter your email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="email@mail.com"
+              name="StudentEmail"
+            />
+          </div>
+          <div class="info">
+            <label for="age">Enter your date of birth</label>
+            <input
+              type="date"
+              id="age"
+              placeholder="dd/mm/yyyy"
+              name="StudentBirthday"
+            />
+          </div>
+        </section>
+        <section role="region" aria-labelledby="html-questions">
+          <h2 id="html-questions">HTML Questions</h2>
+          <div class="question-block">
+            <h3><span class="sr-only">Question</span>1</h3>
+            <fieldset class="question" name="html-question-1">
+              <legend>HTML stands for Handred Turtles Million Litros?</legend>
+              <ul class="answers-list">
+                <li>
+                  <label for="q1-a1">
+                    <input
+                      type="radio"
+                      id="q1-a1"
+                      value="true"
+                      name="html-question-1"
+                    />True
+                  </label>
+                </li>
+                <li>
+                  <label for="q1-a2">
+                    <input
+                      type="radio"
+                      id="q1-a2"
+                      value="false"
+                      name="html-question-1"
+                    />False
+                  </label>
+                </li>
+              </ul>
+            </fieldset>
+          </div>
+          <div class="question-block">
+            <h3><span class="sr-only">Question</span>2</h3>
+            <fieldset class="question" name="html-question-2">
+              <legend>Which tag is used to define a list item?</legend>
+              <ul class="answers-list">
+                <li>
+                  <label for="q2-a1">
+                    <input
+                      type="radio"
+                      name="html-question-2"
+                      id="q2-a1"
+                      value="true"
+                    />True
+                  </label>
+                </li>
+                <li>
+                  <label for="q2-a2">
+                    <input
+                      type="radio"
+                      name="html-question-2"
+                      id="q2-a2"
+                      value="false"
+                    />False
+                  </label>
+                </li>
+              </ul>
+            </fieldset>
+          </div>
+        </section>
+        <section role="region" aria-labelledby="css-questions">
+          <h2 id="css-questions">CSS Questions</h2>
+          <div class="formrow">
+            <div class="question-block">
+              <label for="q3-a">CSS stands for Cascading Style Sheets?</label>
+            </div>
+            <div class="answer">
+              <select name="css-question-3" id="q3-a" required>
+                <option value="">Select an option</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            <div class="question-block">
+              <label for="q3-b">CSS stands for Cascading Style Sheets?</label>
+            </div>
+            <div class="answer">
+              <textarea
+                name="css-question-3"
+                id="q3-b"
+                rows="2"
+                cols="50"
+              ></textarea>
+            </div>
+          </div>
+        </section>
+        <button type="submit" id="submit-btn">Send</button>
+      </form>
+    </main>
+    <footer>
+      <address>
+        <a href="https://freecodecamp.org">freeCodeCamp</a><br />
+        San Francisco<br />
+        California<br />
+        USA
+      </address>
+    </footer>
+  </body>
+</html>
