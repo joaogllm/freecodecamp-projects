@@ -1,0 +1,367 @@
+/* ========================
+   CSS VARIABLES & RESET
+======================== */
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap");
+
+:root {
+  --bg: #f9f9f9;
+  --orange: #f26419;
+  --orange-light: #f4a261;
+  --text-main: #2e2e2e;
+  --text-secondary: #6b6b6b;
+  --surface: #efefef;
+  --border: #d1d1d1;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-main);
+  font-family: "DM Sans", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ========================
+   NAVBAR
+======================== */
+#navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 1.2rem 3rem;
+  display: flex;
+  justify-content: flex-end;
+  background-color: rgba(249, 249, 249, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+#navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+}
+
+#navbar a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+#navbar a::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--orange);
+  transition: width 0.25s ease;
+}
+
+#navbar a:hover {
+  color: var(--orange);
+}
+
+#navbar a:hover::after {
+  width: 100%;
+}
+
+/* ========================
+   WELCOME SECTION
+======================== */
+#welcome-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 10vw;
+  position: relative;
+  overflow: hidden;
+}
+
+#welcome-section::before {
+  content: "";
+  position: absolute;
+  top: -150px;
+  right: -150px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(242, 100, 25, 0.12) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.welcome-section-title {
+  font-family: "Syne", sans-serif;
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.welcome-section-title::after {
+  content: ".";
+  color: var(--orange);
+}
+
+.welcome-section-sub {
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 300;
+  color: var(--text-secondary);
+  margin-top: 1rem;
+  font-style: italic;
+  letter-spacing: 0.04em;
+}
+
+/* ========================
+   ABOUT SECTION
+======================== */
+#about {
+  padding: 7rem 10vw;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 5rem;
+  align-items: center;
+  border-top: 1px solid var(--border);
+}
+
+.about-image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 4px;
+  filter: sepia(1%);
+  transition: filter 0.4s ease;
+  box-shadow: 8px 8px 0px var(--orange);
+}
+
+.about-image:hover {
+  filter: sepia(20%);
+}
+
+.about-text {
+  font-size: 1.15rem;
+  line-height: 1.85;
+  color: var(--text-secondary);
+  font-weight: 300;
+}
+
+/* ========================
+   PROJECTS SECTION
+======================== */
+#project-section {
+  padding: 7rem 10vw;
+  background-color: var(--surface);
+  border-top: 1px solid var(--border);
+}
+
+.project-section-header {
+  font-family: "Syne", sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 3.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.project-section-header::before {
+  content: "//";
+  color: var(--orange);
+  margin-right: 0.6rem;
+  font-weight: 400;
+  font-size: 0.85em;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.project {
+  text-decoration: none;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.project:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(242, 100, 25, 0.15);
+  border-color: var(--orange-light);
+}
+
+.project-preview {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.project:hover .project-preview {
+  transform: scale(1.04);
+}
+
+.project-title {
+  font-family: "Syne", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  padding: 1rem 1.2rem;
+  border-top: 1px solid var(--border);
+  transition: color 0.2s ease;
+}
+
+.project:hover .project-title {
+  color: var(--orange);
+}
+
+.todostyle {
+  color: var(--orange);
+}
+
+.showAll-btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: transparent;
+  border: 2px solid var(--orange);
+  color: var(--orange);
+  text-decoration: none;
+  font-family: "Syne", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  border-radius: 4px;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.showAll-btn:hover {
+  background-color: var(--orange);
+  color: #fff;
+}
+
+/* ========================
+   CONTACT SECTION
+======================== */
+#contact {
+  padding: 7rem 10vw;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 3rem;
+}
+
+.contact-header-grid h2 {
+  font-family: "Syne", sans-serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.1;
+}
+
+.contact-header-grid p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+.contact-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contact-links a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 0.6rem 1.4rem;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  background-color: var(--surface);
+  transition: all 0.25s ease;
+}
+
+.contact-links a:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+  background-color: rgba(242, 100, 25, 0.05);
+}
+
+/* ========================
+   RESPONSIVE
+======================== */
+@media (max-width: 768px) {
+  #navbar {
+    padding: 1rem 1.5rem;
+    justify-content: center;
+  }
+
+  #navbar ul {
+    gap: 1.5rem;
+  }
+
+  #welcome-section {
+    padding: 0 6vw;
+  }
+
+  #about {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 5rem 6vw;
+  }
+
+  .about-image {
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  #project-section,
+  #contact {
+    padding: 5rem 6vw;
+  }
+}
