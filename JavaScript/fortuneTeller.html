@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fortune Teller</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #1e293b, #0f172a);
+        color: white;
+        padding: 20px;
+      }
+
+      .card {
+        background-color: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(8px);
+        border-radius: 16px;
+        padding: 32px;
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 16px;
+      }
+
+      p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 24px;
+      }
+
+      button {
+        background-color: #38bdf8;
+        color: #0f172a;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition:
+          transform 0.2s ease,
+          opacity 0.2s ease;
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+        opacity: 0.9;
+      }
+
+      button:active {
+        transform: translateY(0);
+      }
+
+      #fortune {
+        min-height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <h1>🔮 Fortune Teller</h1>
+      <p id="fortune">Click the button to reveal your fortune!</p>
+      <button id="fortune-btn">Get Fortune</button>
+    </main>
+    <script src="fortuneTeller.js"></script>
+  </body>
+</html>
