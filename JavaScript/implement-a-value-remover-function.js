@@ -9,3 +9,10 @@ function destroyer(arr, ...num) {
 }
 
 console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
+
+function destroyer2(arr, ...num) {
+  const result = arr.filter((item) => !num.includes(item));
+  return result;
+}
+
+console.log(destroyer2([1, 2, 3, 1, 2, 3], 2, 3));
