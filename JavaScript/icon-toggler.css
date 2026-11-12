@@ -1,0 +1,163 @@
+:root {
+  --bg: #f4f1ec;
+  --card: #ffffff;
+  --text: #2b2a33;
+  --muted: #8a8794;
+  --border: #ebe7e0;
+  --accent: #e63e62;
+  --accent-soft: rgba(230, 62, 98, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+}
+
+.list-container {
+  width: 100%;
+  max-width: 420px;
+  background: var(--card);
+  border-radius: 16px;
+  padding: 28px 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.list-title {
+  margin: 0 0 16px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.item-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 8px;
+  border-bottom: 1px solid var(--border);
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.item-list li:last-child {
+  border-bottom: none;
+}
+
+.item-list li:hover {
+  background-color: #faf8f5;
+}
+
+/* ---------- Favorite button ---------- */
+
+.favorite-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease,
+    transform 0.15s ease;
+}
+
+.favorite-icon:hover {
+  color: var(--accent);
+  background-color: rgba(230, 62, 98, 0.08);
+}
+
+.favorite-icon:active {
+  transform: scale(0.85);
+}
+
+.favorite-icon:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- Filled state (added via JavaScript) ---------- */
+
+.filled {
+  color: var(--accent);
+  animation: heart-pop 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+/* Expanding ring behind the heart */
+.favorite-icon.filled::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--accent-soft);
+  pointer-events: none;
+  animation: ring-burst 0.5s ease-out forwards;
+}
+
+@keyframes heart-pop {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.5) rotate(-8deg);
+  }
+  55% {
+    transform: scale(0.9) rotate(4deg);
+  }
+  80% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes ring-burst {
+  0% {
+    transform: scale(0.4);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .favorite-icon,
+  .favorite-icon.filled,
+  .favorite-icon.filled::after {
+    animation: none;
+    transition: none;
+  }
+}
