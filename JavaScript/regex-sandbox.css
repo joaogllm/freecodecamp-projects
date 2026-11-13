@@ -1,0 +1,312 @@
+/* Regex Sandbox - SK Telecom T1 palette (red, black, white) */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --black: #0a0a0c;
+  --charcoal: #16161a;
+  --graphite: #232329;
+  --grey: #8c8c94;
+  --white: #f5f6f7;
+  --red: #e2012d;
+  --red-light: #ff3355;
+  --red-dark: #b00022;
+  --red-soft: rgba(226, 1, 45, 0.25);
+
+  --radius: 6px;
+  --border: 2px solid var(--graphite);
+  --padding: 0.5rem;
+  --max-width: 720px;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  background-color: var(--black);
+  background-image: radial-gradient(
+    circle at top,
+    rgba(226, 1, 45, 0.12),
+    transparent 55%
+  );
+  background-repeat: no-repeat;
+  color: var(--white);
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+/* ---------- Headings ---------- */
+
+h1 {
+  margin: 3rem auto 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 900;
+  color: var(--white);
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 4rem;
+  height: 4px;
+  margin: 0.8rem auto 0;
+  background-color: var(--red);
+  border-radius: 2px;
+}
+
+h2 {
+  flex: 0 0 auto;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--red);
+}
+
+p {
+  padding: var(--padding);
+}
+
+/* ---------- Layout ---------- */
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+#regex-container,
+#test-container,
+#result-container {
+  margin: 1.2rem 0;
+}
+
+/* ---------- Regex pattern + flags ---------- */
+
+#regex-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding: var(--padding);
+  background-color: var(--charcoal);
+  border: var(--border);
+  border-left: 6px solid var(--red);
+  border-radius: var(--radius);
+}
+
+#regex-container > label {
+  flex: 1 1 320px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: var(--padding);
+  font-weight: 700;
+}
+
+#pattern-container {
+  flex: 1 1 200px;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.6rem;
+  background-color: var(--white);
+  color: var(--red-dark);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: var(--border);
+  border-radius: var(--radius);
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+#pattern-container:focus-within {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px var(--red-soft);
+}
+
+#pattern {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0.3rem 0;
+  background: transparent;
+  border: 0;
+  outline: none;
+  color: var(--black);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+#flags-container {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  flex: 0 0 auto;
+}
+
+#flags-container > p {
+  color: var(--grey);
+}
+
+#flags-container > label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.6rem;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: var(--radius);
+  transition: background-color 0.2s;
+}
+
+#flags-container > label:hover {
+  background-color: var(--graphite);
+}
+
+input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--red);
+  cursor: pointer;
+}
+
+/* ---------- Test string ---------- */
+
+#test-container {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--charcoal);
+  border: var(--border);
+  border-left: 6px solid var(--red);
+  border-radius: var(--radius);
+}
+
+#test-container > p {
+  color: var(--grey);
+  font-weight: 700;
+}
+
+#test-string {
+  min-height: 6rem;
+  padding: 0.7rem;
+  background-color: var(--white);
+  color: var(--black);
+  font-size: 1.1rem;
+  border-top: var(--border);
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+
+#test-string:focus {
+  box-shadow: inset 0 0 0 3px var(--red-soft);
+}
+
+[contenteditable="true"]:empty::before {
+  content: attr(placeholder);
+  pointer-events: none;
+  color: var(--grey);
+}
+
+::placeholder {
+  color: var(--grey);
+  opacity: 1;
+}
+
+/* ---------- Button ---------- */
+
+button {
+  display: block;
+  width: 100%;
+  max-width: 12rem;
+  margin: 1.5rem auto;
+  padding: 0.6rem 1rem;
+  color: var(--white);
+  background-color: var(--red);
+  background-image: linear-gradient(var(--red-light), var(--red-dark));
+  border: 2px solid var(--red);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    transform 0.1s,
+    box-shadow 0.2s,
+    background-image 0.2s;
+}
+
+button:hover {
+  background-image: linear-gradient(var(--red), var(--red-dark));
+  box-shadow: 0 0 14px var(--red-soft);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button:focus-visible {
+  outline: 3px solid var(--white);
+  outline-offset: 3px;
+}
+
+/* ---------- Result ---------- */
+
+#result-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+#result {
+  min-height: 3.5rem;
+  padding: 0.7rem;
+  background-color: var(--white);
+  color: var(--black);
+  font-size: 1.3rem;
+  border: var(--border);
+  border-bottom: 4px solid var(--red);
+  border-radius: var(--radius);
+  overflow-wrap: anywhere;
+}
+
+.highlight {
+  background-color: var(--red);
+  color: var(--white);
+  padding: 0 0.15em;
+  border-radius: 3px;
+}
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 480px) {
+  html {
+    font-size: 16px;
+  }
+
+  h1 {
+    margin-top: 2rem;
+    letter-spacing: 0.1em;
+  }
+
+  #flags-container {
+    width: 100%;
+  }
+}
